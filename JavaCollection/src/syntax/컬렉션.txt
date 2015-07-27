@@ -1,0 +1,23 @@
+2015. 07 .27
+
+컬렉션 인터페이스 Big 3
+List : 순서 O , 중복 O  (순서있다는건 인덱스값이 있음)
+	ArrayList(add),     (add는 앞에어떤값이 있으면 뒤에 딱딱붙이는느낌)
+	Vector(add),
+	Stack(push / pop),    (담을때는 push ,, 가져올떈 pop)
+	LinkedList
+set : 순서 X , 중복 X
+	HashSet , TreeSet
+Map : 순서 X, 키중복 X, 값중복 O  (굳이쓸거면 set보다 선호됨,,)      필드에다 List or MAP을쓴다고 생각하면됨 ,,
+	키는 Set 타입 반환				
+	값은 Collection 타입 반환
+	HashMap(put),	(map은 바로접근가능한 개념 순서가없음 그래서 put)		List계열은 add(붙이는개념) , map계열은 put (앞에있뜬없든 신경안씀)
+	TreeMap, HashTable , ProPerties
+
+	
+===================================
+
+	자바 문법
+	인터페이스를 구현한 클래스는
+	인터페이스 타입으로 객체를 생성해야 한다.
+	List <---- ArrayList, Vector, Stack

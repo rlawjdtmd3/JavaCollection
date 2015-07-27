@@ -32,3 +32,42 @@
  컬렉션 = 이녀석도 클래스 
  집합구조로 만들어진클래스 ,, 배열처럼 집합체로 만들어진 클래스
  내부가 이미 방이 나뉜 ,,집합을 위해 만들어진 클래스를 "컬렉션"이라고 합니다 ..
+ 
+ 
+ 
+ 
+ 2015. 07 .27
+ ======ArrayList 와 배열 (Array)의 차이 =========
+ 
+ 
+ [배열]
+ 1. 선언 :
+ 	String[] arr = new Stirng[10];
+ 2. 길이 :
+ 	arr.length
+ 3. 추가 :
+ 	arr[i] = "샘플"
+ 4. 삭제 : 
+  	arr[i] = null
+ 5. 검색 :
+ 	boolean flag =false;
+ 	for(String str : arr){
+ 		if("검색어".equals(str)){
+ 			flag = true;
+ 			break;
+ 		}
+ 		
+ 		
+ [ArrayList]
+ 
+ 1. 선언 : 
+ 	List<String> list = new ArrayList<String>();  
+ 	(인터페이스 타입으로 바로구현되기때문에  ArrayList가아닌 List로 시작하는거 주의)
+ 2. 길이 : 
+ 	list.size();
+ 3. 추가 :
+ 	list.add("샘플");
+ 4. 삭제 :
+ 	list.remove(1) // 인덱스
+ 5. 찾기 :
+ 	list.contains("샘플")
