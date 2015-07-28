@@ -1,5 +1,4 @@
 package util.vector;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -17,24 +16,21 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.sql.rowset.serial.SerialArray;
-// 전체에서 특정 글자 바꾸기 단축키   ctrl + f
+// 전체에서 특정 글자 바꾸기 단축키 
 /*
  * @ Date : 2015.07.27
  * @ Author : me
  * @ Story : 
  * */
-public class GradeServiceImpl implements GradeService {
+public class GradeServiceImpl2 implements GradeService {
 	//서비스란 말은 객체.. 기능클래스를 핸들링하는것을 말함 
 	//객체 먼저 정의하고 .. 그객체에대한 중요기능들을 모아논 서비스 .. 그서비스를 구현한것이 서비스impl  .. 메인메소드역할이 컨트롤러
 	
 	//필드에 아래 메소드들이 공유할 자료구조를 뭘 쓸까 ?? 고민
 	//1. ArrayList , 2. Vector , 3. Stack 4. HashMap 
 	// 순서 O , 중복 O
-	
-	//private Vector<Grade> vec = new Vector<Grade>(); // 꼭기억 !!! 객체하나만할꺼면 서비스 막 이렇게나눠서 하는 의미가없음 ..
-	private List<Grade> vec = new ArrayList<Grade>(); 
+	private Vector<Grade> vec = new Vector<Grade>(); // 꼭기억 !!! 객체하나만할꺼면 서비스 막 이렇게나눠서 하는 의미가없음 ..
 	//배열은 바로 int count 부터 선언했는데... 지금은 벡터 ..자료구조
-	
 	Grade grade = new Grade(); //Grade 클래스에 디폴트 생성자를 만들어서 에러제거
 	
 	
@@ -66,17 +62,17 @@ public class GradeServiceImpl implements GradeService {
 		for (int i = 0; i < vec.size(); i++) {   //검색은 무조건 이모양 //배열은 length ,, 자료구조는 사이즈
 			
 			//만약 vec가 배열이라면  vec.get(i) 이렇게처리 
-			String searchHakbun = vec.get(i).getHakbun();
+			String searchHakbun = vec.elementAt(i).getHakbun();
 			//객체 .메소드.메소드.메소드.메소드 ..이런패턴은 반드시 return값이 있는
 			//메소드들 끼리 연결시에만 가능하다.
 			//이런 방식을 멧드 체인이라고 함.
 			
 			if (hakbun.equalsIgnoreCase(searchHakbun)) { //대소문자구분x  , 구분할거면 : equals
 
-				String name = vec.get(i).getName();
-				int kor = vec.get(i).getKor();   //grade 객체를리턴해서 국어점수리턴해서 kor변수에넣는
-				int eng = vec.get(i).getEng();
-				int math = vec.get(i).getMath();
+				String name = vec.elementAt(i).getName();
+				int kor = vec.elementAt(i).getKor();   //grade 객체를리턴해서 국어점수리턴해서 kor변수에넣는
+				int eng = vec.elementAt(i).getEng();
+				int math = vec.elementAt(i).getMath();
 				
 				
 				grade = new Grade(searchHakbun, name , kor , eng , math);
@@ -100,24 +96,24 @@ public class GradeServiceImpl implements GradeService {
 		
 		for (int i = 0; i < vec.size(); i++) {
 
-			String searchName = vec.get(i).getName();
+			String searchName = vec.elementAt(i).getName();
 		
 			
 			//고정값(파라미터).equals(변수값)
 			if (name.equalsIgnoreCase(searchName)) {
 				
-				//String hakbun = vec.get(i).getHakbun();
-				//int kor = vec.get(i).getKor();
-				//int eng = vec.get(i).getEng();
-				//int math = vec.get(i).getMath();
+				//String hakbun = vec.elementAt(i).getHakbun();
+				//int kor = vec.elementAt(i).getKor();
+				//int eng = vec.elementAt(i).getEng();
+				//int math = vec.elementAt(i).getMath();
 				//grade = new Grade(hakbun,searchName,kor,eng,math);  //name을쓰던 searchname을 쓰던 상관 x //검색엔진 패턴은 거의 이렇게씀
 				
 				
-				grade = new Grade(vec.get(i).getHakbun(),
+				grade = new Grade(vec.elementAt(i).getHakbun(),
 								 searchName,
-								 vec.get(i).getKor(),
-								 vec.get(i).getEng(),
-								 vec.get(i).getMath());  //어떻게든 메모리 소모를 줄여야겠다
+								 vec.elementAt(i).getKor(),
+								 vec.elementAt(i).getEng(),
+								 vec.elementAt(i).getMath());  //어떻게든 메모리 소모를 줄여야겠다
 				
 				
 				//arr[i] = "홍길동";  // 배열에선 이렇게
