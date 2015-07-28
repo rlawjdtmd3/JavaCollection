@@ -1,4 +1,7 @@
 package util.vector;
+
+import java.util.Vector;
+
 /*
  * @ Date : 2015.07.27
  * @ Author : me
@@ -17,10 +20,15 @@ public interface GradeService {
 	
 	// 학번으로 성적결과 조회(검색)
 	public String searchGradeByHakbun(String hakbun);
+	
+	// 이름으로 성적결과 조회(검색)
+	public Vector<Grade> searchGradeByName(String name);
 
-	//성적순으로 정렬
-	public void ascGradeTotal();
-
+	//총점 역순 정렬
+	public void descByTotal();
+	
+	//이름 오름차순 정렬(ㄱ,ㄴ,ㄷ....)
+	public void ascByname();
 
 }
 

@@ -1,4 +1,5 @@
 package util.vector;
+import java.util.Comparator;
 /*
  * 프로그램을 코딩하다 보면 
  * 자료구조를 다루는 데 있어서
@@ -84,9 +85,75 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public void ascGradeTotal() {
-		// 성적 정렬
+	public Vector<Grade> searchGradeByName(String name) { // 파라미터가 String인데   벡터라는 변수타입과는 관꼐x 벡터가 변수타입인건 return값과 관련
+		
+		Vector<Grade> temp = new Vector<Grade>();   //자료구조를 가지고 검색을할때 그자료구조내부의 객체를 선언해줘라   
+													//클래스에서도 인스턴수 변수로 자료구조 ,, 그내부것까지  선언 
+		Grade grade = null; //자료구조만들었으면 자료구조내부꺼 선언 및 초기화
+		
+		
+		for (int i = 0; i < vec.size(); i++) {
+
+			String searchName = vec.elementAt(i).getName();
+		
+			
+			//고정값(파라미터).equals(변수값)
+			if (name.equalsIgnoreCase(searchName)) {
+				
+				//String hakbun = vec.elementAt(i).getHakbun();
+				//int kor = vec.elementAt(i).getKor();
+				//int eng = vec.elementAt(i).getEng();
+				//int math = vec.elementAt(i).getMath();
+				//grade = new Grade(hakbun,searchName,kor,eng,math);  //name을쓰던 searchname을 쓰던 상관 x //검색엔진 패턴은 거의 이렇게씀
+				
+				
+				grade = new Grade(vec.elementAt(i).getHakbun(),
+								 searchName,
+								 vec.elementAt(i).getKor(),
+								 vec.elementAt(i).getEng(),
+								 vec.elementAt(i).getMath());  //어떻게든 메모리 소모를 줄여야겠다
+				
+				
+				//arr[i] = "홍길동";  // 배열에선 이렇게
+				temp.add(grade);    // list 계열에선 add
+				//temp.put();       // 맵에선 put 
+				break;
+				
+			} else {
+				
+				//temp라는 벡터를 완전히 비워서 null로 리턴
+				temp.remove(new Grade());
+			}
+			
+		}
+		
+		return temp;
 	}
+	
+	
+	
+	@Override
+	public void descByTotal() {
+		// 성적 정렬
+		// Java API 중에서 정렬담당 클래스
+		// Comparator
+		
+		//anonymous inner class
+		Comparator<Grade> desc = new Comparator<Grade>() {
+			
+			@Override
+			public int compare(Grade o1, Grade o2) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		};
+	
+	}
+	@Override
+	public void ascByname() {
+		
+	}
+
 	
 	//implement 코딩순서
 	//1. void는 냅두고  2. 리턴값있는애들은 타입잡아서 변수하나 선언 ,, 리턴에 그변수 넣어줌 ..

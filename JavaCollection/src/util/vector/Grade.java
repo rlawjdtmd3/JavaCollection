@@ -57,7 +57,7 @@ public class Grade {
 	public int getTotal(int kor , int eng , int math){ //파라미터로 넘어온애들은 메인에서 선언하는 ..    
 		int total = 0 ;
 		total = kor + eng + math ;
-		// 위 kor,eng , math 는 this를 지움으로써
+		// 위 kor, eng , math 는 this를 지움으로써
 		// 멤버필드에 인스턴스 변수가 아닌
 		// 파라미터로 넘어온 지역변수가 되었다.
 		return total;
@@ -67,6 +67,8 @@ public class Grade {
 	
 	@Override
 	public String toString() {
+		
+		
 		return "성적표 [이름 : "+name+" , 학번 : "+hakbun+", ]\n"
 				+"국어 : "+kor+" , 영어 : "+eng+" , 수학 : "+math+" \n"
 				+"총합 : "+getTotal(kor , eng , math)+"\n"; // 파라미터받는애로 썻으면 적어주고 아니면안적고
