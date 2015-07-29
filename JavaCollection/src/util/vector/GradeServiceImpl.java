@@ -50,7 +50,7 @@ public class GradeServiceImpl implements GradeService {
 	@Override
 	public void printList() {
 		// 전체출력
-		System.out.println(vec.toString()); //출력
+		System.out.println(vec); //출력
 	}
 
 	@Override
